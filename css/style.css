@@ -467,11 +467,12 @@ p { line-height: 1.55; color: var(--ink-soft); }
 
 .message-band .kicker {
   font-family: var(--font-mono);
-  font-size: 0.75rem;
+  font-size: 1.25rem;
   text-transform: uppercase;
   letter-spacing: 0.12em;
   color: var(--c-encontros);
   margin-bottom: 14px;
+  font-weight: bold;
 }
 
 .message-band p {
