@@ -438,8 +438,8 @@ p { line-height: 1.55; color: var(--ink-soft); }
 
 .feature-text { flex: 1; }
 
-.feature-text h3 { font-size: 1.3rem; margin-bottom: 6px; }
-.feature-text p { margin-bottom: 14px; }
+.feature-text h3 { font-size: 1.75rem; margin-bottom: 6px; }
+.feature-text p { font-size: 1.3rem; margin-bottom: 14px; }
 
 .feature-text .btn {
   text-decoration: none;
@@ -600,7 +600,7 @@ p { line-height: 1.55; color: var(--ink-soft); }
   padding: 24px 20px;
   text-align: center;
   font-family: var(--font-mono);
-  font-size: 0.72rem;
+  font-size: 1.25rem;
   background: var(--ink);
   color: #cfc7b6;
 }
