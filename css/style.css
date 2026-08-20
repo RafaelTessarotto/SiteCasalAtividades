@@ -74,8 +74,7 @@ p { line-height: 1.55; color: var(--ink-soft); }
   width: 100%;
   height: var(--nav-height);
   z-index: 3;
-  border-bottom: 2px solid var(--ink);
-  background: var(--paper-raised);
+  background: var(--ink);
   display: flex;
   align-items: center;
 }
@@ -96,6 +95,7 @@ p { line-height: 1.55; color: var(--ink-soft); }
   font-size: 1.35rem;
   margin-right: auto;
   white-space: nowrap;
+  color: var(--paper-raised);
 }
 
 .brand span { color: var(--c-encontros); }
@@ -106,17 +106,17 @@ p { line-height: 1.55; color: var(--ink-soft); }
   letter-spacing: 0.03em;
   text-transform: uppercase;
   text-decoration: none;
-  color: var(--ink-soft);
+  color: #cfc7b6;
   white-space: nowrap;
   padding-bottom: 2px;
   border-bottom: 2px solid transparent;
   transition: color 0.15s ease, border-color 0.15s ease;
 }
 
-.nav-tab:hover { color: var(--ink); }
+.nav-tab:hover { color: var(--paper-raised); }
 
 .nav-tab.active {
-  color: var(--ink);
+  color: var(--paper-raised);
   border-bottom: 2px solid var(--c-encontros);
 }
 
@@ -425,6 +425,14 @@ p { line-height: 1.55; color: var(--ink-soft); }
   justify-content: center;
   font-size: 3.2rem;
   border: 2px solid var(--ink);
+  overflow: hidden;
+}
+
+.feature-visual .icon-block img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
 }
 
 .feature-text { flex: 1; }
