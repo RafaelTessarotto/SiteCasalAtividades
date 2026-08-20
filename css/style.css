@@ -24,6 +24,7 @@
   --font-display: "Fraunces", Georgia, serif;
   --font-body: "IBM Plex Sans", system-ui, sans-serif;
   --font-mono: "IBM Plex Mono", monospace;
+  --font-message: "Charm", cursive;
 
   --radius: 10px;
 }
@@ -474,10 +475,11 @@ p { line-height: 1.55; color: var(--ink-soft); }
 }
 
 .message-band p {
-  font-family: var(--font-display);
-  font-size: 1.3rem;
+  font-family: var(--font-message);
+  font-size: 1.9rem;
+  font-weight: 700;
   color: var(--ink);
-  line-height: 1.6;
+  line-height: 1.5;
 }
 
 @media (max-width: 620px) {
