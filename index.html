@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Rafael & Gabriela</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:wght@600;700&family=IBM+Plex+Mono:wght@500;600&family=IBM+Plex+Sans:wght@400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+<body>
+
+  <nav class="site-nav">
+    <div class="container">
+      <span class="brand">Nossa Agenda</span>
+      <a class="nav-tab active" data-cat="home" href="index.html">Home</a>
+      <a class="nav-tab" data-cat="fazer" href="coisas-pra-fazer.html">Atividades</a>
+      <a class="nav-tab" data-cat="comida" href="vontade-de-comer.html">Vontades</a>
+      <a class="nav-tab" data-cat="encontros" href="encontros.html">Encontros</a>
+      <a class="nav-tab" data-cat="viagens" href="viagens.html">Viagens</a>
+    </div>
+  </nav>
+
+  <!-- BANNER DE TOPO: fica fixo no fundo enquanto a página rola -->
+  <div class="top-banner">
+    <!-- troque o src abaixo pela foto de vocês em assets/ -->
+    <img src="assets/casal.jpg" alt="Rafael e Gabriela" />
+    <div class="names">Rafael &amp; Gabriela</div>
+  </div>
+
+  <!-- espaço vazio pra revelar a foto antes do conteúdo começar -->
+  <div class="banner-spacer"></div>
+
+  <!-- todo o restante do conteúdo escorrega por cima da foto ao rolar -->
+  <div class="scroll-content">
+
+  <!-- FAIXA DA CONTAGEM REGRESSIVA (na verdade, contagem "pra cima" desde o início) -->
+  <div class="countdown-banner">
+    <div class="kicker">Contagem regressiva</div>
+    <div class="countdown-blocks">
+      <div class="countdown-block">
+        <span class="num" id="cd-dias">0</span>
+        <span class="label">dias</span>
+      </div>
+      <div class="countdown-block">
+        <span class="num" id="cd-horas">00</span>
+        <span class="label">horas</span>
+      </div>
+      <div class="countdown-block">
+        <span class="num" id="cd-minutos">00</span>
+        <span class="label">min</span>
+      </div>
+      <div class="countdown-block">
+        <span class="num" id="cd-segundos">00</span>
+        <span class="label">seg</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- ÁREA INTERATIVA: zigue-zague com um bloco por página -->
+  <div class="feature-band">
+
+    <div class="feature-row">
+      <div class="feature-visual">
+        <div class="icon-block" style="background:var(--c-fazer-soft); color:var(--c-fazer);">🌱</div>
+      </div>
+      <div class="feature-text">
+        <h3>Atividades</h3>
+        <p>A lista maior, sem data marcada — coisas pra aprender, desafios e projetos a dois.</p>
+        <a class="btn" href="coisas-pra-fazer.html#nova">+ Nova atividade</a>
+      </div>
+    </div>
+
+    <div class="feature-row reverse">
+      <div class="feature-visual">
+        <div class="icon-block" style="background:var(--c-comida-soft); color:var(--c-comida);">🍽️</div>
+      </div>
+      <div class="feature-text">
+        <h3>Vontades</h3>
+        <p>Bateu a vontade de comer alguma coisa agora? Registre aqui.</p>
+        <a class="btn" href="vontade-de-comer.html#nova">+ Nova vontade</a>
+      </div>
+    </div>
+
+    <div class="feature-row">
+      <div class="feature-visual">
+        <div class="icon-block" style="background:var(--c-encontros-soft); color:var(--c-encontros);">💌</div>
+      </div>
+      <div class="feature-text">
+        <h3>Encontros</h3>
+        <p>Ideias de programa pra vocês dois, com filtro por categoria e status.</p>
+        <a class="btn" href="encontros.html#nova">+ Nova ideia</a>
+      </div>
+    </div>
+
+    <div class="feature-row reverse">
+      <div class="feature-visual">
+        <div class="icon-block" style="background:var(--c-viagens-soft); color:var(--c-viagens);">✈️</div>
+      </div>
+      <div class="feature-text">
+        <h3>Viagens</h3>
+        <p>Destinos, passeios e restaurantes salvos, organizados por lugar.</p>
+        <a class="btn" href="viagens.html#novo">+ Novo destino</a>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- EVENTOS MARCADOS -->
+  <div class="events-band">
+    <div class="events-section">
+      <h2>Eventos marcados</h2>
+
+      <div class="event-card">
+        <div class="event-date"><strong>14</strong>SET</div>
+        <div>
+          <span class="tag" style="background:var(--c-encontros-soft); color:var(--c-encontros);">Encontro</span>
+          <div><strong>Jantar no restaurante novo</strong></div>
+        </div>
+      </div>
+
+      <div class="event-card">
+        <div class="event-date"><strong>02</strong>NOV</div>
+        <div>
+          <span class="tag" style="background:var(--c-viagens-soft); color:var(--c-viagens);">Viagem</span>
+          <div><strong>Fim de semana em Ilha Grande</strong></div>
+        </div>
+      </div>
+
+      <!-- quando não houver nenhum evento, mostrar algo como:
+      <div class="empty-state">
+        <h3>Nada marcado ainda</h3>
+        <p>Assim que vocês marcarem uma data em Viagens ou Encontros, ela aparece aqui.</p>
+      </div>
+      -->
+    </div>
+  </div>
+
+  <!-- MENSAGEM: conteúdo ainda a definir -->
+  <div class="message-band">
+    <div class="container">
+      <div class="kicker">Um recado pra você</div>
+      <p>[ aqui entra a mensagem/texto de vocês dois — ainda por escrever ]</p>
+    </div>
+  </div>
+
+  <footer class="site-footer">feito a dois — hospedado no GitHub Pages</footer>
+
+  </div><!-- /scroll-content -->
+
+  <script src="js/contador.js"></script>
+</body>
+</html>

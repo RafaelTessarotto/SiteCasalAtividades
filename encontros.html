@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Encontros · Nosso diário</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:wght@600;700&family=IBM+Plex+Mono:wght@500;600&family=IBM+Plex+Sans:wght@400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+<body>
+
+  <nav class="site-nav">
+    <div class="container">
+      <span class="brand">nosso <span>diário</span></span>
+      <a class="nav-tab" data-cat="home" href="index.html">Início</a>
+      <a class="nav-tab" data-cat="viagens" href="viagens.html">Viagens</a>
+      <a class="nav-tab active" data-cat="encontros" href="encontros.html">Encontros</a>
+      <a class="nav-tab" data-cat="fazer" href="coisas-pra-fazer.html">Fazer juntos</a>
+      <a class="nav-tab" data-cat="comida" href="vontade-de-comer.html">Vontade de comer</a>
+    </div>
+  </nav>
+
+  <div class="page-header">
+    <span class="kicker" style="color:var(--c-encontros);">Encontros</span>
+    <h1>Ideias de programa pra vocês dois</h1>
+    <p>Filtre por categoria quando tiverem pouco tempo, dinheiro ou vontade de sair.</p>
+  </div>
+
+  <div class="actions-bar">
+    <button class="btn secondary" id="toggle-feitos">Ver encontros já feitos</button>
+    <button class="btn" id="add-encontro">+ Nova ideia</button>
+  </div>
+
+  <div class="card-grid">
+    <div class="card">
+      <span class="status-pill" style="background:var(--c-encontros-soft); color:var(--c-encontros);">Ar livre</span>
+      <h3>Piquenique no parque</h3>
+      <p class="meta">Sugerido por ela</p>
+      <p>Levar aquela salada de macarrão que ela gosta.</p>
+    </div>
+
+    <div class="card">
+      <span class="status-pill" style="background:#e4efec; color:#2f5850;">Grátis</span>
+      <h3>Maratona de filme em casa</h3>
+      <p class="meta">Sugerido por você</p>
+      <p>Aquela trilogia que ainda não assistiram juntos.</p>
+    </div>
+  </div>
+
+  <div class="empty-state">
+    <h3>Guarde ideias pra quando bater a vontade</h3>
+    <p>Conectando ao banco de dados, cada ideia adicionada aparece aqui na hora — pra ambos verem.</p>
+  </div>
+
+  <footer class="site-footer">feito a dois — hospedado no GitHub Pages</footer>
+
+</body>
+</html>

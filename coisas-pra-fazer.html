@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Fazer juntos · Nosso diário</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:wght@600;700&family=IBM+Plex+Mono:wght@500;600&family=IBM+Plex+Sans:wght@400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+<body>
+
+  <nav class="site-nav">
+    <div class="container">
+      <span class="brand">nosso <span>diário</span></span>
+      <a class="nav-tab" data-cat="home" href="index.html">Início</a>
+      <a class="nav-tab" data-cat="viagens" href="viagens.html">Viagens</a>
+      <a class="nav-tab" data-cat="encontros" href="encontros.html">Encontros</a>
+      <a class="nav-tab active" data-cat="fazer" href="coisas-pra-fazer.html">Fazer juntos</a>
+      <a class="nav-tab" data-cat="comida" href="vontade-de-comer.html">Vontade de comer</a>
+    </div>
+  </nav>
+
+  <div class="page-header">
+    <span class="kicker" style="color:var(--c-fazer);">Fazer juntos</span>
+    <h1>A lista maior, sem data marcada</h1>
+    <p>Coisas pra aprender, desafios, projetos a dois — sem compromisso de quando.</p>
+  </div>
+
+  <div class="actions-bar">
+    <button class="btn secondary" id="toggle-feitos">Ver o que já fizeram</button>
+    <button class="btn" id="add-item">+ Nova ideia</button>
+  </div>
+
+  <div class="card-grid">
+    <div class="card">
+      <span class="status-pill" style="background:var(--c-fazer-soft); color:var(--c-fazer);">Pendente</span>
+      <h3>Fazer uma aula de culinária juntos</h3>
+      <p class="meta">Sugerido por você</p>
+    </div>
+
+    <div class="card">
+      <span class="status-pill" style="background:var(--c-fazer-soft); color:var(--c-fazer);">Pendente</span>
+      <h3>Plantar uma horta pequena</h3>
+      <p class="meta">Sugerido por ela</p>
+    </div>
+  </div>
+
+  <div class="empty-state">
+    <h3>Sem pressa</h3>
+    <p>Essa lista é pra sonhar sem prazo. O que já foi feito fica guardado no histórico, sem poluir a tela.</p>
+  </div>
+
+  <footer class="site-footer">feito a dois — hospedado no GitHub Pages</footer>
+
+</body>
+</html>
