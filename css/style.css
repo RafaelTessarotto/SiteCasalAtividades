@@ -472,7 +472,6 @@ p { line-height: 1.55; color: var(--ink-soft); }
   letter-spacing: 0.12em;
   color: var(--c-encontros);
   margin-bottom: 14px;
-  font-weight: bold;
 }
 
 .message-band p {
@@ -591,6 +590,101 @@ p { line-height: 1.55; color: var(--ink-soft); }
   background: transparent;
   color: var(--ink);
 }
+
+/* ===========================================================
+   AUTENTICAÇÃO — tela de "quem é você?"
+   =========================================================== */
+.auth-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(38, 35, 32, 0.82);
+  backdrop-filter: blur(2px);
+  z-index: 50;
+  display: none;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+}
+
+.auth-box {
+  background: var(--paper-raised);
+  border: 2px solid var(--ink);
+  border-radius: var(--radius);
+  padding: 36px 30px;
+  max-width: 340px;
+  width: 100%;
+  text-align: center;
+}
+
+.auth-box h2 { margin-bottom: 4px; }
+
+.auth-box .auth-sub {
+  font-family: var(--font-mono);
+  font-size: 0.78rem;
+  color: var(--ink-soft);
+  margin-bottom: 22px;
+}
+
+.auth-people {
+  display: flex;
+  gap: 12px;
+  justify-content: center;
+  margin-bottom: 16px;
+}
+
+.auth-person {
+  flex: 1;
+  font-family: var(--font-mono);
+  padding: 14px 8px;
+  border: 2px solid var(--ink);
+  border-radius: 8px;
+  background: var(--paper);
+  color: var(--ink);
+  cursor: pointer;
+  font-size: 0.85rem;
+  text-transform: uppercase;
+  letter-spacing: 0.03em;
+}
+
+.auth-person:hover { background: var(--c-encontros-soft); }
+
+.auth-person.selected {
+  background: var(--c-encontros-soft);
+  border-color: var(--c-encontros);
+  color: var(--c-encontros);
+}
+
+#auth-pin-step { margin-top: 4px; }
+
+#auth-pin-input {
+  width: 100%;
+  padding: 12px;
+  font-family: var(--font-mono);
+  font-size: 1.3rem;
+  text-align: center;
+  letter-spacing: 0.4em;
+  border: 2px solid var(--ink);
+  border-radius: 8px;
+  margin-bottom: 12px;
+  box-sizing: border-box;
+}
+
+.auth-error {
+  color: #9c3b3b;
+  font-size: 0.78rem;
+  min-height: 1.2em;
+  margin: 0 0 8px;
+}
+
+.usuario-info {
+  font-family: var(--font-mono);
+  font-size: 0.75rem;
+  color: #cfc7b6;
+  text-decoration: none;
+  white-space: nowrap;
+}
+
+.usuario-info:hover { color: var(--paper-raised); }
 
 /* ===========================================================
    FOOTER

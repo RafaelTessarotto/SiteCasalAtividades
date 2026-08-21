@@ -3,26 +3,48 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Vontade de comer · Nosso diário</title>
+  <title>Vontades · Nossa Agenda</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link href="https://fonts.googleapis.com/css2?family=Fraunces:wght@600;700&family=IBM+Plex+Mono:wght@500;600&family=IBM+Plex+Sans:wght@400;500&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="css/style.css" />
 </head>
 <body>
 
+  <!-- TELA DE IDENTIFICAÇÃO: pergunta quem está navegando -->
+  <div class="auth-overlay" id="auth-overlay">
+    <div class="auth-box">
+      <h2>Quem é você?</h2>
+      <p class="auth-sub">selecione seu nome e digite o PIN</p>
+      <div class="auth-people">
+        <button class="auth-person" data-person="rafael" type="button">Rafael</button>
+        <button class="auth-person" data-person="gabriela" type="button">Gabriela</button>
+      </div>
+      <div id="auth-pin-step" style="display:none;">
+        <input type="password" id="auth-pin-input" maxlength="4" inputmode="numeric" placeholder="••••" />
+        <p class="auth-error" id="auth-error"></p>
+        <button class="btn" id="auth-pin-submit" type="button" style="width:100%;">Entrar</button>
+      </div>
+    </div>
+  </div>
+
+
   <nav class="site-nav">
     <div class="container">
-      <span class="brand">nosso <span>diário</span></span>
-      <a class="nav-tab" data-cat="home" href="index.html">Início</a>
-      <a class="nav-tab" data-cat="viagens" href="viagens.html">Viagens</a>
+      <span class="brand">Nossa Agenda</span>
+      <a class="nav-tab" data-cat="home" href="index.html">Home</a>
+      <a class="nav-tab" data-cat="fazer" href="coisas-pra-fazer.html">Atividades</a>
+      <a class="nav-tab active" data-cat="comida" href="vontade-de-comer.html">Vontades</a>
       <a class="nav-tab" data-cat="encontros" href="compromissos.html">Compromissos</a>
-      <a class="nav-tab" data-cat="fazer" href="coisas-pra-fazer.html">Fazer juntos</a>
-      <a class="nav-tab active" data-cat="comida" href="vontade-de-comer.html">Vontade de comer</a>
+      <a class="nav-tab" data-cat="viagens" href="viagens.html">Viagens</a>
+      <span class="usuario-info" style="margin-left:8px;">
+        <span id="usuario-badge"></span> ·
+        <a href="#" id="trocar-usuario" class="usuario-info">trocar</a>
+      </span>
     </div>
   </nav>
 
   <div class="page-header">
-    <span class="kicker" style="color:var(--c-comida);">Vontade de comer</span>
+    <span class="kicker" style="color:var(--c-comida);">Vontades</span>
     <h1>Bateu a vontade agora</h1>
     <p>Rápido e direto: o prato ou restaurante, e o quão urgente é a fome.</p>
   </div>
@@ -48,5 +70,8 @@
 
   <footer class="site-footer">feito a dois — hospedado no GitHub Pages</footer>
 
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+  <script src="js/supabase-config.js"></script>
+  <script src="js/auth.js"></script>
 </body>
 </html>
