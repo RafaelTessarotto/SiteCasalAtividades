@@ -54,18 +54,42 @@
     <button class="btn" id="add-vontade">+ Adicionar vontade</button>
   </div>
 
-  <div class="card-grid">
-    <div class="card">
-      <span class="status-pill" style="background:var(--c-comida-soft); color:var(--c-comida);">Essa semana</span>
-      <h3>Pastel de feira</h3>
-      <p class="meta">Sugerido por ela</p>
+  <!-- POP-UP: escondido até clicar em "+ Adicionar vontade" -->
+  <div class="modal-overlay" id="vontade-modal-overlay">
+    <div class="modal-box">
+      <button type="button" class="modal-close" id="fechar-modal-vontade" aria-label="Fechar">×</button>
+      <h2 id="modal-titulo">Nova vontade</h2>
+      <form id="form-vontade">
+        <div class="form-field">
+          <label for="input-titulo">O que você quer comer?</label>
+          <input type="text" id="input-titulo" required placeholder="Ex: Pastel de feira" />
+        </div>
+        <div class="form-field">
+          <label for="input-onde">Onde (opcional)</label>
+          <input type="text" id="input-onde" placeholder="Ex: feira do bairro" />
+        </div>
+        <div class="form-field">
+          <label for="input-descricao">Detalhes (opcional)</label>
+          <textarea id="input-descricao" placeholder="Algum detalhe a mais..."></textarea>
+        </div>
+        <div class="form-field">
+          <label for="input-urgencia">Quando bate essa vontade?</label>
+          <select id="input-urgencia">
+            <option value="mes">Esse mês</option>
+            <option value="semana">Essa semana</option>
+            <option value="urgente">Urgente</option>
+          </select>
+        </div>
+        <button type="submit" class="btn" id="btn-salvar-vontade">Salvar vontade</button>
+      </form>
     </div>
+  </div>
 
-    <div class="card">
-      <span class="status-pill" style="background:#f2e0e0; color:#9c3b3b;">Urgente</span>
-      <h3>Hambúrguer daquele lugar novo</h3>
-      <p class="meta">Sugerido por você</p>
-    </div>
+  <div class="card-grid" id="vontades-grid"></div>
+
+  <div class="empty-state" id="vontades-empty" style="display:none;">
+    <h3>Nada por aqui ainda</h3>
+    <p>Assim que alguém adicionar uma vontade, ela aparece aqui.</p>
   </div>
 
   <footer class="site-footer">feito a dois — hospedado no GitHub Pages</footer>
@@ -73,5 +97,6 @@
   <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
   <script src="js/supabase-config.js"></script>
   <script src="js/auth.js"></script>
+  <script src="js/vontades.js"></script>
 </body>
 </html>
