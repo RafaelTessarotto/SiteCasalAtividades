@@ -729,6 +729,10 @@ p { line-height: 1.55; color: var(--ink-soft); }
 
 .modal-close:hover { color: var(--ink); }
 
+body.fundo-rosa {
+  background-color: var(--c-encontros-soft);
+}
+
 /* ===========================================================
    FORMULÁRIOS (adicionar item)
    =========================================================== */
@@ -794,42 +798,43 @@ p { line-height: 1.55; color: var(--ink-soft); }
   color: var(--c-comida);
 }
 
-.excluir-btn {
+.vontade-card {
+  padding-bottom: 46px;
+}
+
+.card-footer-left {
+  position: absolute;
+  bottom: 14px;
+  left: 14px;
+  right: 60px;
+}
+
+.card-footer-right {
+  position: absolute;
+  bottom: 12px;
+  right: 14px;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.excluir-btn,
+.editar-btn {
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  margin-top: 0;
-  color: #9c3b3b;
   background: none;
   border: none;
   cursor: pointer;
-  padding: 2px;
+  padding: 3px;
   opacity: 0.75;
 }
 
-.excluir-btn:hover { opacity: 1; }
+.excluir-btn { color: #9c3b3b; }
+.editar-btn { color: var(--ink-soft); }
 
-.card-acoes {
-  display: flex;
-  align-items: center;
-  gap: 14px;
-  margin-top: 10px;
-}
-
-.card-acoes .editar-btn { margin-top: 0; }
-
-.editar-btn {
-  font-family: var(--font-mono);
-  font-size: 0.68rem;
-  text-transform: uppercase;
-  letter-spacing: 0.03em;
-  color: var(--ink-soft);
-  background: none;
-  border: none;
-  cursor: pointer;
-  padding: 0;
-  text-decoration: underline;
-}
+.excluir-btn:hover,
+.editar-btn:hover { opacity: 1; }
 
 .resposta-opcoes button.selecionado {
   background: var(--ink);

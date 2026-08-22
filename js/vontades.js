@@ -115,6 +115,13 @@ function cardHTML(v, eu) {
     respostaHTML = `<span class="toque-responder">Toque pra responder</span>`;
   }
 
+  const iconeLapis = `
+    <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+      <path d="M12 20h9"></path>
+      <path d="M16.5 3.5a2.12 2.12 0 0 1 3 3L7 19l-4 1 1-4Z"></path>
+    </svg>
+  `;
+
   const iconeLixeira = `
     <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
       <polyline points="3 6 5 6 21 6"></polyline>
@@ -126,10 +133,8 @@ function cardHTML(v, eu) {
   `;
 
   const acoesAutor = souAutor
-    ? `<div class="card-acoes">
-         <button type="button" class="editar-btn" data-id="${v.id}">Editar</button>
-         <button type="button" class="excluir-btn" data-id="${v.id}" title="Excluir" aria-label="Excluir">${iconeLixeira}</button>
-       </div>`
+    ? `<button type="button" class="editar-btn" data-id="${v.id}" title="Editar" aria-label="Editar">${iconeLapis}</button>
+       <button type="button" class="excluir-btn" data-id="${v.id}" title="Excluir" aria-label="Excluir">${iconeLixeira}</button>`
     : "";
 
   return `
@@ -138,8 +143,8 @@ function cardHTML(v, eu) {
       <h3>${escapeHTML(v.titulo)}</h3>
       <p class="meta">Sugerido por ${sugeridoTexto}${v.onde ? " · " + escapeHTML(v.onde) : ""}</p>
       ${v.descricao ? `<p>${escapeHTML(v.descricao)}</p>` : ""}
-      ${respostaHTML}
-      ${acoesAutor}
+      <div class="card-footer-left">${respostaHTML}</div>
+      ${acoesAutor ? `<div class="card-footer-right">${acoesAutor}</div>` : ""}
     </div>
   `;
 }
