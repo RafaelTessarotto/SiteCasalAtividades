@@ -686,6 +686,57 @@ p { line-height: 1.55; color: var(--ink-soft); }
 
 .usuario-info:hover { color: var(--paper-raised); }
 
+.vontade-card {
+  padding-bottom: 46px;
+  border: 1px solid rgba(38, 35, 32, 0.12);
+  border-radius: 18px;
+  box-shadow: 0 6px 18px rgba(38, 35, 32, 0.10);
+  animation: fadeInUp 0.35s ease both;
+}
+
+@keyframes fadeInUp {
+  from { opacity: 0; transform: translateY(10px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.resposta-pill {
+  transition: background-color 0.2s ease, color 0.2s ease;
+}
+
+.vontades-section-title {
+  max-width: 880px;
+  margin: 30px auto 12px;
+  padding: 0 20px;
+  font-family: var(--font-mono);
+  font-size: 0.78rem;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--ink-soft);
+}
+
+.fab-add {
+  position: fixed;
+  bottom: 26px;
+  right: 26px;
+  width: 58px;
+  height: 58px;
+  border-radius: 50%;
+  background: var(--ink);
+  color: var(--paper-raised);
+  font-size: 1.9rem;
+  line-height: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: none;
+  cursor: pointer;
+  box-shadow: 0 8px 22px rgba(38, 35, 32, 0.30);
+  z-index: 30;
+  transition: transform 0.15s ease;
+}
+
+.fab-add:hover { transform: scale(1.06); }
+
 /* ===========================================================
    MODAL (pop-up) — mesmo padrão visual do login
    =========================================================== */

@@ -49,11 +49,6 @@
     <p>Rápido e direto: o prato ou restaurante, e o quão urgente é a fome.</p>
   </div>
 
-  <div class="actions-bar">
-    <span></span>
-    <button class="btn" id="add-vontade">+ Adicionar vontade</button>
-  </div>
-
   <!-- POP-UP: escondido até clicar em "+ Adicionar vontade" -->
   <div class="modal-overlay" id="vontade-modal-overlay">
     <div class="modal-box">
@@ -85,12 +80,19 @@
     </div>
   </div>
 
-  <div class="card-grid" id="vontades-grid"></div>
+  <div class="vontades-section-title" id="titulo-pendentes" style="display:none;">Aguardando resposta</div>
+  <div class="card-grid" id="vontades-grid-pendentes"></div>
+
+  <div class="vontades-section-title" id="titulo-respondidas" style="display:none;">Já respondidas</div>
+  <div class="card-grid" id="vontades-grid-respondidas"></div>
 
   <div class="empty-state" id="vontades-empty" style="display:none;">
     <h3>Nada por aqui ainda</h3>
     <p>Assim que alguém adicionar uma vontade, ela aparece aqui.</p>
   </div>
+
+  <!-- BOTÃO FLUTUANTE: abre o mesmo pop-up de adicionar -->
+  <button type="button" class="fab-add" id="add-vontade" title="Adicionar vontade" aria-label="Adicionar vontade">+</button>
 
   <footer class="site-footer">Rafael ❤️ Gabriela</footer>
 

@@ -27,9 +27,8 @@ function escapeHTML(str) {
 }
 
 async function carregarVontades() {
-  const grid = document.getElementById("vontades-grid");
-  if (!grid) return;
-  grid.innerHTML = '<p class="meta">Carregando...</p>';
+  const gridPendentes = document.getElementById("vontades-grid-pendentes");
+  if (gridPendentes) gridPendentes.innerHTML = '<p class="meta">Carregando...</p>';
 
   const { data, error } = await supabaseClient
     .from("vontades")
@@ -37,7 +36,9 @@ async function carregarVontades() {
     .order("criado_em", { ascending: false });
 
   if (error) {
-    grid.innerHTML = '<p class="meta">Erro ao carregar: ' + escapeHTML(error.message) + "</p>";
+    if (gridPendentes) {
+      gridPendentes.innerHTML = '<p class="meta">Erro ao carregar: ' + escapeHTML(error.message) + "</p>";
+    }
     console.error(error);
     return;
   }
@@ -47,31 +48,42 @@ async function carregarVontades() {
 }
 
 function renderizarVontades() {
-  const grid = document.getElementById("vontades-grid");
+  const gridPendentes = document.getElementById("vontades-grid-pendentes");
+  const gridRespondidas = document.getElementById("vontades-grid-respondidas");
+  const tituloPendentes = document.getElementById("titulo-pendentes");
+  const tituloRespondidas = document.getElementById("titulo-respondidas");
   const empty = document.getElementById("vontades-empty");
   const eu = usuarioAtual();
 
   if (!vontadesCache.length) {
-    grid.innerHTML = "";
+    gridPendentes.innerHTML = "";
+    gridRespondidas.innerHTML = "";
+    tituloPendentes.style.display = "none";
+    tituloRespondidas.style.display = "none";
     if (empty) empty.style.display = "block";
     return;
   }
   if (empty) empty.style.display = "none";
 
-  grid.innerHTML = vontadesCache.map((v) => cardHTML(v, eu)).join("");
+  const pendentes = vontadesCache.filter((v) => !v.resposta);
+  const respondidas = vontadesCache.filter((v) => v.resposta);
+
+  tituloPendentes.style.display = pendentes.length ? "block" : "none";
+  tituloRespondidas.style.display = respondidas.length ? "block" : "none";
+
+  gridPendentes.innerHTML = pendentes.map((v) => cardHTML(v, eu)).join("");
+  gridRespondidas.innerHTML = respondidas.map((v) => cardHTML(v, eu)).join("");
 
   // antes de responder: o card inteiro é clicável
-  vontadesCache.forEach((v) => {
-    if (v.sugerido_por !== eu && !v.resposta) {
+  pendentes.forEach((v) => {
+    if (v.sugerido_por !== eu) {
       const card = document.getElementById("vontade-" + v.id);
-      if (card) {
-        card.addEventListener("click", () => abrirOpcoesResposta(v.id));
-      }
+      if (card) card.addEventListener("click", () => abrirOpcoesResposta(v.id));
     }
   });
 
   // depois de já ter resposta: só o balão é clicável, pra trocar
-  grid.querySelectorAll(".clicavel-pill").forEach((pill) => {
+  document.querySelectorAll(".clicavel-pill").forEach((pill) => {
     pill.addEventListener("click", (e) => {
       e.stopPropagation();
       abrirOpcoesResposta(pill.dataset.id);
@@ -79,7 +91,7 @@ function renderizarVontades() {
   });
 
   // liga os botões de excluir
-  grid.querySelectorAll(".excluir-btn").forEach((btn) => {
+  document.querySelectorAll(".excluir-btn").forEach((btn) => {
     btn.addEventListener("click", (e) => {
       e.stopPropagation();
       excluirVontade(btn.dataset.id);
@@ -87,7 +99,7 @@ function renderizarVontades() {
   });
 
   // liga os botões de editar
-  grid.querySelectorAll(".editar-btn").forEach((btn) => {
+  document.querySelectorAll(".editar-btn").forEach((btn) => {
     btn.addEventListener("click", (e) => {
       e.stopPropagation();
       abrirModalEdicao(btn.dataset.id);
