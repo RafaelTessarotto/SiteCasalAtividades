@@ -492,8 +492,13 @@ p { line-height: 1.55; color: var(--ink-soft); }
    =========================================================== */
 .page-header {
   max-width: 880px;
-  margin: 40px auto 24px;
-  padding: 0 20px;
+  width: calc(100% - 40px);
+  margin: calc(var(--nav-height) + 34px) auto 24px;
+  padding: 26px 28px;
+  background: var(--paper-raised);
+  border: 1px solid rgba(38, 35, 32, 0.12);
+  border-radius: 18px;
+  box-shadow: 0 6px 18px rgba(38, 35, 32, 0.08);
 }
 
 .page-header .kicker {
@@ -721,7 +726,7 @@ p { line-height: 1.55; color: var(--ink-soft); }
   width: 58px;
   height: 58px;
   border-radius: 50%;
-  background: var(--ink);
+  background: var(--c-comida);
   color: var(--paper-raised);
   font-size: 1.9rem;
   line-height: 1;
