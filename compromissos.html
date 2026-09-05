@@ -49,36 +49,73 @@
     <p>Filtre por categoria quando tiverem pouco tempo, dinheiro ou vontade de sair.</p>
   </div>
 
-  <div class="actions-bar">
-    <button class="btn secondary" id="toggle-feitos">Ver compromissos já feitos</button>
-    <button class="btn" id="add-encontro">+ Nova ideia</button>
-  </div>
-
-  <div class="card-grid">
-    <div class="card">
-      <span class="status-pill" style="background:var(--c-encontros-soft); color:var(--c-encontros);">Ar livre</span>
-      <h3>Piquenique no parque</h3>
-      <p class="meta">Sugerido por ela</p>
-      <p>Levar aquela salada de macarrão que ela gosta.</p>
+  <!-- POP-UP: escondido até clicar no botão flutuante -->
+  <div class="modal-overlay" id="compromisso-modal-overlay">
+    <div class="modal-box">
+      <button type="button" class="modal-close" id="fechar-modal-compromisso" aria-label="Fechar">×</button>
+      <h2 id="modal-titulo">Novo compromisso</h2>
+      <form id="form-compromisso">
+        <div class="form-field">
+          <label for="input-titulo">O que rolou de ideia?</label>
+          <input type="text" id="input-titulo" required placeholder="Ex: Piquenique no parque" />
+        </div>
+        <div class="form-field">
+          <label for="input-onde">Onde (opcional)</label>
+          <input type="text" id="input-onde" placeholder="Ex: Parque do Ibirapuera" />
+        </div>
+        <div class="form-field">
+          <label for="input-descricao">Detalhes (opcional)</label>
+          <textarea id="input-descricao" placeholder="Algum detalhe a mais..."></textarea>
+        </div>
+        <div class="form-field">
+          <label for="input-urgencia">Quando bate essa vontade?</label>
+          <select id="input-urgencia">
+            <option value="mes">Esse mês</option>
+            <option value="semana">Essa semana</option>
+            <option value="urgente">Urgente</option>
+          </select>
+        </div>
+        <div class="form-field">
+          <label for="input-pessoas">Quem vai?</label>
+          <select id="input-pessoas">
+            <option value="casal">Só nós dois</option>
+            <option value="grupo">Em grupo</option>
+          </select>
+        </div>
+        <div class="form-field">
+          <label style="display:flex; align-items:center; gap:8px; text-transform:none; font-size:0.9rem; color:var(--ink);">
+            <input type="checkbox" id="input-tem-data" style="width:auto;" />
+            Já tem data marcada?
+          </label>
+        </div>
+        <div class="form-field" id="campo-data-hora" style="display:none;">
+          <label for="input-data-hora">Data e hora</label>
+          <input type="datetime-local" id="input-data-hora" />
+        </div>
+        <button type="submit" class="btn" id="btn-salvar-compromisso">Salvar compromisso</button>
+      </form>
     </div>
-
-    <div class="card">
-      <span class="status-pill" style="background:#e4efec; color:#2f5850;">Grátis</span>
-      <h3>Maratona de filme em casa</h3>
-      <p class="meta">Sugerido por você</p>
-      <p>Aquela trilogia que ainda não assistiram juntos.</p>
-    </div>
   </div>
 
-  <div class="empty-state">
-    <h3>Guarde ideias pra quando bater a vontade</h3>
-    <p>Conectando ao banco de dados, cada ideia adicionada aparece aqui na hora — pra ambos verem.</p>
+  <div class="vontades-section-title" id="titulo-pendentes" style="display:none;">Aguardando resposta</div>
+  <div class="card-grid" id="compromissos-grid-pendentes"></div>
+
+  <div class="vontades-section-title" id="titulo-respondidas" style="display:none;">Já respondidos</div>
+  <div class="card-grid" id="compromissos-grid-respondidas"></div>
+
+  <div class="empty-state" id="compromissos-empty" style="display:none;">
+    <h3>Nada por aqui ainda</h3>
+    <p>Assim que alguém adicionar uma ideia, ela aparece aqui.</p>
   </div>
+
+  <!-- BOTÃO FLUTUANTE: abre o pop-up de adicionar -->
+  <button type="button" class="fab-add fab-encontros" id="add-compromisso" title="Adicionar compromisso" aria-label="Adicionar compromisso">+</button>
 
   <footer class="site-footer">Rafael ❤️ Gabriela</footer>
 
   <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
   <script src="js/supabase-config.js"></script>
   <script src="js/auth.js"></script>
+  <script src="js/compromissos.js"></script>
 </body>
 </html>

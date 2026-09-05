@@ -691,13 +691,16 @@ p { line-height: 1.55; color: var(--ink-soft); }
 
 .usuario-info:hover { color: var(--paper-raised); }
 
-.vontade-card {
+.vontade-card,
+.compromisso-card {
   padding-bottom: 46px;
   border: 1px solid rgba(38, 35, 32, 0.12);
   border-radius: 18px;
   box-shadow: 0 6px 18px rgba(38, 35, 32, 0.10);
   animation: fadeInUp 0.35s ease both;
 }
+
+.compromisso-card { padding-top: 38px; }
 
 @keyframes fadeInUp {
   from { opacity: 0; transform: translateY(10px); }
@@ -741,6 +744,22 @@ p { line-height: 1.55; color: var(--ink-soft); }
 }
 
 .fab-add:hover { transform: scale(1.06); }
+
+.fab-encontros { background: var(--c-encontros); }
+
+.pessoas-pill {
+  position: absolute;
+  top: 14px;
+  left: 14px;
+  font-family: var(--font-mono);
+  font-size: 0.65rem;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  padding: 3px 8px;
+  border-radius: 20px;
+  background: rgba(38, 35, 32, 0.06);
+  color: var(--ink-soft);
+}
 
 /* ===========================================================
    MODAL (pop-up) — mesmo padrão visual do login
