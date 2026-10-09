@@ -10,7 +10,7 @@
 </head>
 <body class="fundo-rosa">
 
-  <!-- TELA DE IDENTIFICAÇÃO: pergunta quem está navegando -->
+  <!-- TELA DE IDENTIFICAÇÃO -->
   <div class="auth-overlay" id="auth-overlay">
     <div class="auth-box">
       <h2>Quem é você?</h2>
@@ -26,7 +26,6 @@
       </div>
     </div>
   </div>
-
 
   <nav class="site-nav">
     <div class="container">
@@ -49,34 +48,56 @@
     <p>Coisas pra aprender, desafios, projetos a dois — sem compromisso de quando.</p>
   </div>
 
-  <div class="actions-bar">
-    <button class="btn secondary" id="toggle-feitos">Ver o que já fizeram</button>
-    <button class="btn" id="add-item">+ Nova ideia</button>
+  <!-- POP-UP DE ATIVIDADES -->
+  <div class="modal-overlay" id="atividade-modal-overlay">
+    <div class="modal-box">
+      <button type="button" class="modal-close" id="fechar-modal-atividade" aria-label="Fechar">×</button>
+      <h2 id="modal-titulo">Nova atividade</h2>
+      <form id="form-atividade">
+        <div class="form-field">
+          <label for="input-titulo">O que vamos fazer?</label>
+          <input type="text" id="input-titulo" required placeholder="Ex: Montar o lego do Star Wars" />
+        </div>
+        <div class="form-field">
+          <label for="input-onde">Onde (opcional)</label>
+          <input type="text" id="input-onde" placeholder="Ex: Em casa" />
+        </div>
+        <div class="form-field">
+          <label for="input-descricao">Detalhes (opcional)</label>
+          <textarea id="input-descricao" placeholder="Algum detalhe a mais..."></textarea>
+        </div>
+        <div class="form-field">
+          <label for="input-urgencia">Qual o nível de vontade?</label>
+          <select id="input-urgencia">
+            <option value="mes">Esse mês</option>
+            <option value="semana">Essa semana</option>
+            <option value="urgente">Urgente</option>
+          </select>
+        </div>
+        <button type="submit" class="btn" id="btn-salvar-atividade" style="background:var(--c-fazer); border-color:var(--c-fazer);">Salvar atividade</button>
+      </form>
+    </div>
   </div>
 
-  <div class="card-grid">
-    <div class="card">
-      <span class="status-pill" style="background:var(--c-fazer-soft); color:var(--c-fazer);">Pendente</span>
-      <h3>Fazer uma aula de culinária juntos</h3>
-      <p class="meta">Sugerido por você</p>
-    </div>
+  <div class="vontades-section-title" id="titulo-pendentes" style="display:none;">Aguardando resposta</div>
+  <div class="card-grid" id="atividades-grid-pendentes"></div>
 
-    <div class="card">
-      <span class="status-pill" style="background:var(--c-fazer-soft); color:var(--c-fazer);">Pendente</span>
-      <h3>Plantar uma horta pequena</h3>
-      <p class="meta">Sugerido por ela</p>
-    </div>
-  </div>
+  <div class="vontades-section-title" id="titulo-respondidas" style="display:none;">Já respondidas</div>
+  <div class="card-grid" id="atividades-grid-respondidas"></div>
 
-  <div class="empty-state">
+  <div class="empty-state" id="atividades-empty" style="display:none;">
     <h3>Sem pressa</h3>
-    <p>Essa lista é pra sonhar sem prazo. O que já foi feito fica guardado no histórico, sem poluir a tela.</p>
+    <p>Essa lista é pra sonhar sem prazo. Adicione uma ideia para começar.</p>
   </div>
+
+  <!-- BOTÃO FLUTUANTE -->
+  <button type="button" class="fab-add" id="add-atividade" style="background:var(--c-fazer);" title="Adicionar atividade" aria-label="Adicionar atividade">+</button>
 
   <footer class="site-footer">Rafael ❤️ Gabriela</footer>
 
   <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
   <script src="js/supabase-config.js"></script>
   <script src="js/auth.js"></script>
+  <script src="js/atividades.js"></script>
 </body>
 </html>
