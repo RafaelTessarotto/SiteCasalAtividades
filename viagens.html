@@ -10,7 +10,7 @@
 </head>
 <body class="fundo-rosa">
 
-  <!-- TELA DE IDENTIFICAÇÃO: pergunta quem está navegando -->
+  <!-- TELA DE IDENTIFICAÇÃO -->
   <div class="auth-overlay" id="auth-overlay">
     <div class="auth-box">
       <h2>Quem é você?</h2>
@@ -26,7 +26,6 @@
       </div>
     </div>
   </div>
-
 
   <nav class="site-nav">
     <div class="container">
@@ -49,38 +48,80 @@
     <p>Cada destino guarda passeios, restaurantes, comidas e compras dentro dele.</p>
   </div>
 
-  <div class="actions-bar">
+  <div class="actions-bar" style="justify-content: flex-end;">
     <button class="btn secondary" id="toggle-feitos">Ver já visitados</button>
-    <button class="btn" id="add-destino">+ Novo destino</button>
   </div>
 
-  <div class="card-grid">
-    <!-- exemplo: destino pendente -->
-    <div class="card">
-      <span class="status-pill" style="background:var(--c-viagens-soft); color:var(--c-viagens);">Quero ir</span>
-      <h3>Ouro Preto, MG</h3>
-      <p class="meta">Sugerido por você</p>
-      <p>3 passeios · 1 restaurante · 2 comidas pra provar</p>
-    </div>
-
-    <!-- exemplo: destino em planejamento -->
-    <div class="card">
-      <span class="status-pill" style="background:#fbe9c9; color:#8a5c14;">Planejando</span>
-      <h3>Ilha Grande, RJ</h3>
-      <p class="meta">Sugerido por ela</p>
-      <p>Datas ainda em aberto · 1 restaurante salvo</p>
+  <!-- POP-UP DE VIAGENS -->
+  <div class="modal-overlay" id="viagem-modal-overlay">
+    <div class="modal-box">
+      <button type="button" class="modal-close" id="fechar-modal-viagem" aria-label="Fechar">×</button>
+      <h2 id="modal-titulo">Novo destino</h2>
+      <form id="form-viagem">
+        <div class="form-field">
+          <label for="input-destino">Para onde vamos?</label>
+          <input type="text" id="input-destino" required placeholder="Ex: Monte Verde, MG" />
+        </div>
+        <div class="form-field">
+          <label for="input-status">Em que fase está essa ideia?</label>
+          <select id="input-status">
+            <option value="quero_ir">Só uma vontade (Quero ir)</option>
+            <option value="planejando">Começamos a planejar</option>
+            <option value="marcada">Já tá tudo marcado!</option>
+            <option value="visitado">Já fomos (Histórico)</option>
+          </select>
+        </div>
+        <div class="form-field">
+          <label for="input-pessoas">Quem vai?</label>
+          <select id="input-pessoas">
+            <option value="casal">Só nós dois</option>
+            <option value="grupo">Em grupo</option>
+          </select>
+        </div>
+        <div class="form-field">
+          <label for="input-descricao">Detalhes, roteiros ou links (opcional)</label>
+          <textarea id="input-descricao" placeholder="Alguma pousada em mente? Restaurantes que querem ir?"></textarea>
+        </div>
+        <div class="form-field">
+          <label style="display:flex; align-items:center; gap:8px; text-transform:none; font-size:0.9rem; color:var(--ink);">
+            <input type="checkbox" id="input-tem-data" style="width:auto;" />
+            Já temos data prevista?
+          </label>
+        </div>
+        <div id="campo-datas" style="display:none; gap:12px; margin-bottom: 14px;">
+          <div class="form-field" style="flex:1; margin-bottom:0;">
+            <label for="input-data-ida">Data de ida</label>
+            <input type="date" id="input-data-ida" />
+          </div>
+          <div class="form-field" style="flex:1; margin-bottom:0;">
+            <label for="input-data-volta">Data de volta</label>
+            <input type="date" id="input-data-volta" />
+          </div>
+        </div>
+        <button type="submit" class="btn" id="btn-salvar-viagem" style="background:var(--c-viagens); border-color:var(--c-viagens); width: 100%;">Salvar destino</button>
+      </form>
     </div>
   </div>
 
-  <div class="empty-state">
+  <div class="vontades-section-title" id="titulo-ativas" style="display:none;">Destinos na lista</div>
+  <div class="card-grid" id="viagens-grid-ativas"></div>
+
+  <div class="vontades-section-title" id="titulo-visitados" style="display:none;">Histórico de viagens</div>
+  <div class="card-grid" id="viagens-grid-visitados" style="display:none;"></div>
+
+  <div class="empty-state" id="viagens-empty" style="display:none;">
     <h3>É só o começo</h3>
-    <p>Quando conectarmos ao banco de dados, os destinos que vocês adicionarem vão aparecer aqui automaticamente.</p>
+    <p>Adicione o primeiro destino que vocês querem conhecer juntos.</p>
   </div>
+
+  <!-- BOTÃO FLUTUANTE -->
+  <button type="button" class="fab-add" id="add-destino" style="background:var(--c-viagens);" title="Adicionar destino" aria-label="Adicionar destino">+</button>
 
   <footer class="site-footer">Rafael ❤️ Gabriela</footer>
 
   <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
   <script src="js/supabase-config.js"></script>
   <script src="js/auth.js"></script>
+  <script src="js/viagens.js"></script>
 </body>
 </html>
