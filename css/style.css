@@ -1,7 +1,8 @@
 /* ===========================================================
    TOKENS — Diário de viagem a dois
    =========================================================== */
-:root {
+
+  :root {
   /* paper & ink */
   --paper: #f6f1e6;
   --nav-height: 68px;
@@ -29,16 +30,17 @@
   --radius: 10px;
 }
 
-* { box-sizing: border-box; }
+* { box-sizing: border-box; } /* Corrigido de - para * */
 
 html, body {
   margin: 0;
   padding: 0;
+  max-width: 100vw;
+  overflow-x: hidden; /* Impede a tela de ir para os lados */
   background: var(--paper);
   color: var(--ink);
   font-family: var(--font-body);
-  background-image:
-    radial-gradient(var(--line) 0.6px, transparent 0.6px);
+  background-image: radial-gradient(var(--line) 0.6px, transparent 0.6px);
   background-size: 22px 22px;
 }
 
@@ -86,8 +88,15 @@ p { line-height: 1.55; color: var(--ink-soft); }
   width: 100%;
   display: flex;
   align-items: center;
-  gap: 44px;
+  gap: 20px; /* Reduzido de 44px para caber melhor no telemóvel */
   padding: 0 20px;
+  overflow-x: auto; /* Permite arrastar para os lados */
+  -webkit-overflow-scrolling: touch; /* Deslizamento suave */
+}
+
+/* Esconde a barra de rolagem no menu */
+.site-nav .container::-webkit-scrollbar {
+  display: none;
 }
 
 .brand {
@@ -723,9 +732,9 @@ p { line-height: 1.55; color: var(--ink-soft); }
 }
 
 .fab-add {
-  position: fixed;
-  bottom: 26px;
-  right: 26px;
+  position: fixed !important;
+  bottom: 26px !important;
+  right: 26px !important;
   width: 58px;
   height: 58px;
   border-radius: 50%;
@@ -739,7 +748,7 @@ p { line-height: 1.55; color: var(--ink-soft); }
   border: none;
   cursor: pointer;
   box-shadow: 0 8px 22px rgba(38, 35, 32, 0.30);
-  z-index: 30;
+  z-index: 9999 !important; /* Força a ficar sempre acima de tudo */
   transition: transform 0.15s ease;
 }
 
@@ -980,4 +989,16 @@ a:focus-visible, button:focus-visible {
 
 @media (prefers-reduced-motion: reduce) {
   * { transition: none !important; }
+}
+
+/* ===========================================================
+   AJUSTES EXTRAS PARA TELEMÓVEL (Poema)
+   =========================================================== */
+@media (max-width: 768px) {
+  .poema, pre { /* Formata qualquer texto estruturado ou poema */
+    font-size: 14px;
+    line-height: 1.4;
+    white-space: pre-wrap; /* Garante que os parágrafos não se partam erradamente */
+    padding: 0 10px;
+  }
 }
