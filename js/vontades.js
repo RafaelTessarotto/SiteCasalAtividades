@@ -320,6 +320,13 @@ document.addEventListener("DOMContentLoaded", () => {
         return;
       }
 
+      // DISPARO DO TELEGRAM
+      if (!editandoId) { 
+        await supabaseClient.rpc('notificar_telegram', { 
+          texto: `<b>Nova Vontade!</b>\nO ${eu} adicionou: <b>${titulo}</b>` 
+        });
+      }
+
       form.reset();
       fecharModal();
       carregarVontades();

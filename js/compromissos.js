@@ -356,6 +356,13 @@ document.addEventListener("DOMContentLoaded", () => {
         return;
       }
 
+      // DISPARO DO TELEGRAM
+      if (!editandoId) { 
+        await supabaseClient.rpc('notificar_telegram', { 
+          texto: `<b>Novo Compromisso!</b>\nO ${eu} adicionou: <b>${titulo}</b>` 
+        });
+      }
+
       form.reset();
       if (campoDataHora) campoDataHora.style.display = "none";
       fecharModal();

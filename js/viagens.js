@@ -105,7 +105,7 @@ function cardHTML(v, eu) {
   const sugeridoTexto = souAutor ? "você" : NOMES[v.sugerido_por] || v.sugerido_por;
   
   const linhaDatas = v.tem_data && v.data_ida
-    ? `<p class="meta" style="color:var(--ink); font-weight:600; margin-top:8px;">📅 ${formatarPeriodo(v.data_ida, v.data_volta)}</p>`
+    ? `<p class="meta" style="color:var(--ink); font-weight:600; margin-top:8px;"> ${formatarPeriodo(v.data_ida, v.data_volta)}</p>`
     : "";
 
   const btnMudarStatus = `<span class="resposta-pill clicavel-pill mudar-status-btn" data-id="${v.id}" style="border: 1px dashed var(--ink-soft); background:transparent; color:var(--ink-soft);">Atualizar fase</span>`;
@@ -299,6 +299,13 @@ document.addEventListener("DOMContentLoaded", () => {
       if (error) {
         alert("Erro ao salvar: " + error.message);
         return;
+      }
+
+      // DISPARO DO TELEGRAM
+      if (!editandoId) { 
+        await supabaseClient.rpc('notificar_telegram', { 
+          texto: `<b>Nova Viagem!</b>\nO ${eu} adicionou: <b>${destino}</b>` 
+        });
       }
 
       form.reset();
